@@ -380,7 +380,7 @@ final class SwooleExtension extends Extension implements PrependExtensionInterfa
             $def->addArgument(new Reference(WithProfiler::class));
         }
 
-        if ($config['blackfire_monitoring'] || (null === $config['blackfire_monitoring'] && \class_exists(\BlackfireProbe::class))) {
+        if ($config['blackfire_monitoring'] && \class_exists(\BlackfireProbe::class)) {
             $container->setParameter(ContainerConstants::PARAM_BLACKFIRE_MONITORING_ENABLED, true);
         }
 
